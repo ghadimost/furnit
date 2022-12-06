@@ -1,0 +1,364 @@
+:root {
+  --height: 30rem;
+  --width: 30rem;
+  --stretch-height: 35rem;
+  --stretch-width: 35rem;
+  --hide-margin: -15rem;
+  --hover-margin: -22rem;
+  --transation: all 1s 0.2s;
+  --links-hidden: -30vw;
+  --links-shown: 0.5vw;
+  --links-shown-top-bottom: 35vh;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  #top_circle:hover + #top_links,
+  #top_circle + #top_links:hover {
+    top: 15vh !important;
+  }
+
+  @media (orientation: landscape) {
+    .circle {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+  }
+  #bottom_circle:hover + #bottom_links,
+  #bottom_circle + #bottom_links:hover {
+    bottom: 15vh !important;
+  }
+}
+.flex {
+  /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position: absolute;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px; /*Fix for safari gap*/
+  min-height: 13rem;
+}
+
+.content {
+  position: relative;
+  height: 20vh;
+  text-align: center;
+  background: url("./noisy_blue.jpg");
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+  .content {
+    height: 30vh;
+  }
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 660px) {
+  .circle {
+    display: inline-block;
+  }
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #FFFFF0;
+  background: url("AL Malki Logo2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x : hidden;
+  position: relative;
+
+}
+body {
+  z-index: -2;
+}
+h2 {
+  color: #000 !important;
+}
+#container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.circle_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  pointer-events: none;
+}
+#top_bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#left_right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  transition: var(--transation);
+  width: var(--width);
+  height: var(--height);
+  align-items: flex-end;
+  pointer-events: all;
+  border-radius: 50%;
+  border: rgb(191, 221, 255) solid;
+}
+.rooms {
+  color: aliceblue;
+  font-family: serif;
+  margin-bottom: 8rem;
+  font-size: 2rem;
+  letter-spacing: 0.4rem;
+  font-weight: bolder;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.circle:hover,
+.hoverd_circle {
+  transition: all 1s;
+  width: var(--stretch-width) !important;
+  height: var(--stretch-height) !important;
+}
+#top_circle {
+  margin-top: var(--hide-margin);
+  background: url("./IMG-20220410-WA0016.jpg");
+  background-size: cover;
+  background-position: center;
+  background-position-y: 4rem;
+}
+#top_circle:hover {
+  margin-top: var(--hover-margin);
+  background-position-y: 10rem !important;
+}
+
+#bottom_circle {
+  background: url("./photo_2022-04-16_20-52-44.jpg");
+  background-size: cover;
+  background-position: right;
+  background-position-y: -13rem;
+  margin-bottom: var(--hide-margin);
+}
+
+#bottom_circle:hover {
+  margin-bottom: var(--hover-margin);
+  background-position-y: -20rem !important;
+}
+
+#left_circle {
+  background: url("./bedrooms.jpg");
+  background-size: cover;
+  margin-left: var(--hide-margin);
+}
+#left_circle:hover {
+  margin-left: var(--hover-margin);
+  background-position-x: 10rem !important;
+}
+#right_circle {
+  background: url("./photo_2022-04-16_23-18-21.jpg");
+  background-size: cover;
+  margin-right: var(--hide-margin);
+  background-position: right;
+}
+#right_circle:hover {
+  margin-right: var(--hover-margin);
+  background-position-x: -10rem !important;
+}
+a {
+  text-decoration: none;
+  margin: 1.7rem;
+  color: rgb(43, 43, 43);
+}
+.links {
+  pointer-events: all;
+  width: fit-content;
+  padding: 1.5rem;
+  position: absolute;
+  transition: var(--transation);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links:hover {
+  transition: var(--transation);
+}
+.hoverd_top_circle {
+  margin-top: var(--hover-margin) !important;
+  background-position-y: 10rem !important;
+}
+
+.hoverd_bottom_circle {
+  margin-bottom: var(--hover-margin) !important;
+  background-position-y: -20rem !important;
+}
+.hoverd_left_circle {
+  margin-left: var(--hover-margin) !important;
+  background-position-x: 10rem !important;
+}
+.hoverd_right_circle {
+  margin-right: var(--hover-margin) !important;
+  background-position-x: -10rem !important;
+}
+
+#top_circle + .links {
+  top: var(--links-hidden);
+}
+.circle .right_room {
+  transform: rotate(-90deg) translateY(-76px) translateX(112px) scale(0);
+}
+.circle:hover .right_room {
+  transform: rotate(-90deg) translateY(-400%) translateX(112px) scale(1);
+  transition: all 1s;
+}
+
+.circle #left_room {
+  transform: rotate(-90deg) translateY(-76px) translateX(112px) scale(0);
+}
+.circle:hover #left_room {
+  transform: rotate(-90deg) translateY(400%) translateX(112px) scale(1);
+  transition: all 1s;
+}
+
+.circle #top_room {
+  transform: scale(0);
+}
+.circle:hover #top_room {
+  transform: scale(1);
+  transition: all 1s;
+}
+.top_room_hoverd {
+  transform: scale(1) !important;
+}
+.left_room_hoverd {
+  transform: rotate(-90deg) translateY(400%) translateX(112px) scale(1) !important;
+}
+.right_room_hoverd {
+  transform: rotate(-90deg) translateY(-400%) translateX(112px) scale(1) !important;
+}
+#top_circle:hover + #top_links,
+#top_circle + #top_links:hover {
+  top: var(--links-shown-top-bottom);
+}
+
+#bottom_circle + .links {
+  bottom: var(--links-hidden);
+}
+#bottom_circle:hover + #bottom_links,
+#bottom_circle + #bottom_links:hover {
+  bottom: var(--links-shown-top-bottom);
+}
+
+#left_circle + .links {
+  left: var(--links-hidden);
+  transform: rotate(90deg);
+}
+#left_circle:hover + #left_links,
+#left_circle + #left_links:hover {
+  left: var(--links-shown);
+}
+
+#right_circle + .links {
+  right: var(--links-hidden);
+  transform: rotate(-90deg);
+}
+#right_circle:hover + #right_links,
+#right_circle + #right_links:hover {
+  right: var(--links-shown);
+}
+
+.change_color {
+  color: rgb(165, 25, 0);
+  transition: var(--transation);
+}
+#waves-container,
+#waves-container svg {
+  z-index: -1;
+}
+
+.text-right {
+  text-align: right;
+}
+/* Bootstrap override */
+.dropdown-item {
+  margin: 0;
+  padding: 1rem;
+  font-style: italic;
+  color: gold;
+  font-size: 40px;
+
+}
+.dropdown-item:hover {
+  background-color: rgb(191, 221, 255);
+  color: bisque;
+}
+
+.nav-link {
+  color: rgb(86, 207, 255) !important;
+}
+
+.container-fluid {
+  flex-direction: row-reverse;
+  justify-content: flex-start !important;
+  column-gap: 1rem !important;
+}
+
+#cstm-nav-logo {
+  cursor: pointer;
+  position: absolute;
+  top: 0.6rem;
+  left: 1.5rem;
+}

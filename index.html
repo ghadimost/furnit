@@ -1,0 +1,394 @@
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const links = Array.from(document.querySelectorAll("[class^=char]"));
+        let start = 0;
+        const chuncks = [];
+        for (let i = 0; i < links.length; i++) {
+            const node = links[i];
+            if (node.classList.value.includes("empty")) {
+                if (i > start) {
+                    chuncks.push(links.slice(start + 1, i));
+                }
+                start = i;
+            }
+        }
+        chuncks.forEach(chunck => {
+            chunck.forEach(span => {
+                span.onmouseenter = () => {
+                    chunck.forEach(
+                        c => c.classList.add("change_color")
+                    )
+                }
+                span.onmouseleave = () => {
+                    chunck.forEach(
+                        c => c.classList.remove("change_color")
+                    )
+                }
+
+            })
+        });
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+        document.onclick = (event) => {
+            const target = event.target;
+            const isHUMBRGEROpen = (() => {
+                const item = document.querySelector(".navbar-collapse");
+                return item.classList.contains("show");
+            })();
+            const nav = document.querySelector("nav");
+            const isInsideNav = nav.contains(target);
+            if (!isInsideNav && isHUMBRGEROpen) {
+                document.querySelector("#toggleBtn").click();
+            }
+
+        }
+    })
+
+</script>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-toggler navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <!-- <a class="navbar-brand mt-2 mt-lg-0" href="#"> -->
+        <!-- </a> -->
+
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button id="toggleBtn" class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                </a>
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                </a>
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                </a>
+                <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-mdb-toggle="dropdown" aria-expanded="true">
+                            Dining Rooms
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">Dining Rooms</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">Dressers</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">Kitchens</a>
+                            </li>
+                          
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-mdb-toggle="dropdown" aria-expanded="false">
+                            Bedrooms
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="bedrooms/mb-home.html">Master Bedrooms</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="bedrooms/cb-home.html">Children Bedrooms</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">Others</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-mdb-toggle="dropdown"
+                            aria-expanded="false">
+                            Livingrooms
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="test cards/livingRooms.html">Sofa Sets</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Coffee Tables</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">TV Units</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-mdb-toggle="dropdown" aria-expanded="false">
+                            Our Services
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">Interior Design</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">Decoration Execution</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#">Furnishing Contracting</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+
+                <a class="text-reset me-3" href="#">
+                   
+                </a>
+
+
+            </div>
+            <!-- Right elements -->
+
+        </div>
+        <img id="cstm-nav-logo" src="./logo (2).png" height="58 " alt="= Logo" loading="lazy"  />
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+
+    <div id="container">
+        <div id="top_bottom" class="circle_container">
+
+            <div class="circle" id="top_circle">
+                <h2 class="rooms" id="top_room"> Dining Rooms Section</h2>
+
+            </div>
+
+            <div class="links" id="top_links">
+                <a href="####" class="example">
+                    <h1 class="hoverd_link" href="#">Dressers</h1>
+                    <h1 class="hoverd_link" href="#">DiningRooms</h1>
+                    <h1 class="hoverd_link" href="#">Kitchens</h1>
+                </a>
+
+            </div>
+
+            <div class="circle" id="bottom_circle">
+
+            </div>
+
+            <div class="links " id="bottom_links">
+                <a href="####" class="example3">
+                    <h1 class="hoverd_link" href="#">InteriorDesigns</h1>
+                    <h1 class="hoverd_link" href="#">DecorationExecution</h1>
+                    <h1 class="hoverd_link" href="#">FurnishingContracting</h1>
+                </a>
+            </div>
+        </div>
+        <div id="left_right" class="circle_container">
+            <div class="circle" id="left_circle">
+                <h2 class="rooms" id="left_room"> BedroomsSection</h2>
+
+            </div>
+            <div class="links" id="left_links">
+                <a href="bedrooms/cb-home.html " class="example1">
+                    <h1 class="hoverd_link" href="bedrooms/cb-home.html">ChildrenBedrooms</h1>
+                    <h1 class="hoverd_link" href="bedrooms/mb-home.html">MasterBedrooms</h1>
+                    <h1 class="hoverd_link" href="#">Others</h1>
+                </a>
+            </div>
+            <div class="circle" id="right_circle">
+                <h2 class="rooms right_room" id="right_room"> Livingrooms
+                    Section</h2>
+
+            </div>
+            <div class="links" id="right_links">
+                <a href="test cards/livingRooms.html" class="example1">
+                    <h1 class="hoverd_link" href="#">CoffeeTables</h1>
+                    <h1 class="hoverd_link" href="test cards/livingRooms.html">SofaSets</h1>
+                    <h1 class="hoverd_link" href="#">TV-Units</h1>
+
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Waves Container-->
+    <div id="waves-container">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <defs>
+                <pattern id="imgpattern" x="0" y="0" width="1" height="1">
+                    <image width="120" height="250" xlink:href="http://lorempixel.com/animals/120/250/" />
+                </pattern>
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.4)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.1)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255,255,255,1)" />
+            </g>
+        </svg>
+    </div>
+    <!--Waves end-->
+    <footer class="background-color text-left text-left">
+        <div class=" p-4 pb-1">
+            <!-- Section: Social media -->
+            <section class="mb-4 mb-lg-3">
+                <!-- Facebook -->
+                <a class="btn  btn-lg btn-primary btn-floating m-1" style="background-color: #1582ff;"
+                    href="https://www.facebook.com/Almalki.Furniture.Gallery/" role="button"><i
+                        class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a class="btn  btn-lg btn-primary btn-floating m-1" style="background-color: #51aeff;"
+                    href="https://twitter.com/AlmalkiFurnish?t=Uhky6hLb6BNiAJRXkR2Pzw&s=09" role="button"><i
+                        class="fab fa-twitter"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn  btn-lg btn-primary btn-floating m-1" style="background-color: #d840ec;"
+                    href="https://www.instagram.com/invites/contact/?i=13klq88fppt2q&utm_content=o9bo4z1"
+                    role="button"><i class="fab fa-instagram"></i></a>
+                <!-- Linkedin -->
+                <a class="btn  btn-lg btn-primary btn-floating m-1" style="background-color: #4684ff;"
+                    href="https://www.linkedin.com/in/almalki-furniture-4b897b236"
+			role="button"><i class="fab fa-linkedin-in"></i></a>
+                <!-- whatsapp -->
+                <a class="btn   btn-lg btn-primary btn-floating m-1" style="background-color: #57d730;"
+                    href="https://wa.me/905347970199"
+                    role="button"><i class="fab fa-whatsapp"></i></a>
+            </section>
+            <!-- Copyright -->
+            <div class="text-right  m-3  z-index" style="z-index:100 !important; ">
+                <a class="text-reset" href="mailto:Gallery@almalkifurniture.com">Gallery@almalkifurniture.com</a>
+            </div>
+            <div class="text-right m-3 z-index " style="z-index:100 !important;">
+                <a class="text-reset" href="mailto:Factory@almalkifurniture.com">Factory@almalkifurniture.com</a>
+
+            </div>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+
+        <!-- Copyright -->
+    </footer>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://tympanus.net/Development/Arctext/js/jquery.arctext.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foggy/1.1.1/jquery.foggy.min.js" type="text/javascript"></script>
+
+<script>
+
+    ["top", "left", "right", "bottom"].forEach(
+        dir => {
+            const element = document.getElementById(`${dir}_links`);
+            element.onmouseenter = () => {
+                document.getElementById(`${dir}_circle`).classList.add("hoverd_circle", `hoverd_${dir}_circle`);
+                document.getElementById(`${dir}_room`).classList.add(`${dir}_room_hoverd`);
+
+            }
+            element.onmouseleave = () => {
+                document.getElementById(`${dir}_circle`).classList.remove("hoverd_circle", `hoverd_${dir}_circle`);
+                document.getElementById(`${dir}_room`).classList.remove(`${dir}_room_hoverd`);
+
+            }
+
+        }
+    )
+    $(document).ready(function () {
+
+        $('.example').arctext({
+            radius: 300, dir: -1,
+            animation: "300ms ease-out"
+
+        });
+
+        $('.example3').arctext({
+            radius: 300,
+            animation: "300ms ease-out"
+
+
+        });
+        $('.example1').arctext({
+            radius: 300,
+            animation: "300ms ease-out"
+
+
+        });
+
+        $('div.circle').mouseenter(function () {
+            $('div.circle').foggy({
+                blurRadius: 3,
+                opacity: 1,
+                cssFilterSupport: true
+            });
+
+            $(this).foggy(false);
+
+
+        });
+
+        $('div.circle').mouseleave(function () {
+            $('div.circle').foggy(false);
+        });
+        $('div.circle').mouseenter(function () {
+            $('div.circle').foggy({
+                blurRadius: 3,
+                opacity: 1,
+                cssFilterSupport: true
+            });
+
+            $(this).foggy(false);
+
+
+        });
+
+
+
+
+    });
+</script>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
